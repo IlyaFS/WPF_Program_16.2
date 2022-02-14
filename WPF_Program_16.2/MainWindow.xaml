@@ -1,0 +1,47 @@
+﻿<Window x:Class="WPF_Program_16._2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Program_16._2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Canvas>
+        <Path Data="M424.5,213.54 C390.18386,255.2096 357.0534,300.4866 318,339.54 344.25597,352.66798 408.6262,332.04 442.5,332.04 485.99316,332.04 528.22325,336.54 570,336.54 600.86982,336.54 594.13273,340.57133 618,318.54 630.17964,307.29726 640.84869,293.47218 651,282.54 669.17711,262.96465 700.83225,244.04326 709.5,218.04 656.61731,218.04 604.69798,221.04 552,221.04 507.70954,221.04 467.74382,218.79392 424.5,213.54 z" Fill="#FF7777AB" Height="131" Canvas.Left="160" Stroke="Black" Stretch="Fill" Canvas.Top="293.04" Width="392" />
+        <Ellipse Height="90"
+                 Canvas.Left="315"
+                 Stroke="Black"
+                 Canvas.Top="284"
+                 Width="90">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="Image/1.jpg"/>
+            </Ellipse.Fill>
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Canvas.Top)"
+                                From="284"
+                                To="50"
+                                Duration="0:0:5" 
+                                DecelerationRatio="0.9">                               
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>                              
+                    <BeginStoryboard HandoffBehavior="Compose">
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Canvas.Top)"
+                                BeginTime="0:0:5"
+                                From="50"
+                                To="284"
+                                Duration="0:0:2">
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+    </Canvas>
+</Window>
